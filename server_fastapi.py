@@ -1,8 +1,6 @@
-
 from fastapi import FastAPI, Form, File, UploadFile
 from fastapi.responses import JSONResponse
 import httpx
-import os
 
 app = FastAPI()
 
@@ -16,12 +14,7 @@ async def send_form(
     message: str = Form(...),
     file: UploadFile = File(None)
 ):
-    text = f"📥 Новая заявка:
-
-👤 Имя: {name}
-📧 Email: {email}
-📝 Сообщение:
-{message}"
+    text = f"📥 Новая заявка:\n\n👤 Имя: {name}\n📧 Email: {email}\n📝 Сообщение:\n{message}"
     async with httpx.AsyncClient() as client:
         # Отправка текстового сообщения
         await client.post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage", data={
