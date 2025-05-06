@@ -4,7 +4,7 @@ import httpx
 
 app = FastAPI()
 
-TELEGRAM_TOKEN = "7747140572:AAFa_2UhUYJ8R44XdHN9F5UkWhyPF59gkxY"
+TELEGRAM_TOKEN = "7747140572:AAECbzwVlIINXQITvB32Vef-_lHx1h_-cbw"
 CHAT_ID = 494063094  # ← твой chat_id
 
 @app.post("/send")
