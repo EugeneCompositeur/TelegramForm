@@ -4,7 +4,7 @@ import httpx
 
 app = FastAPI()
 
-TELEGRAM_TOKEN = "7747140572:AAECbzwVlIINXQITvB32Vef-_lHx1h_-cbw"  # вставь новый токен
+TELEGRAM_TOKEN = "7588857155:AAEh5mKfJ2JvaBRYqjIw1UyKSwJ6Rb7dOKk"  # вставь новый токен
 CHAT_ID = 494063094  # оставить как есть
 
 @app.post("/send")
