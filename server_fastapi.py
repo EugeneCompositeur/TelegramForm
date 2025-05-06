@@ -4,8 +4,8 @@ import httpx
 
 app = FastAPI()
 
-TELEGRAM_TOKEN = "7588857155:AAEh5mKfJ2JvaBRYqjIw1UyKSwJ6Rb7dOKk"  # вставь новый токен
-CHAT_ID = 494063094  # оставить как есть
+TELEGRAM_TOKEN = "7588857155:AAEh5mKfJ2JvaBRYqjIw1UyKSwJ6Rb7dOKk"
+CHAT_ID = 494063094  # Не менять
 
 @app.post("/send")
 async def send_form(
@@ -18,12 +18,12 @@ async def send_form(
 
     async with httpx.AsyncClient() as client:
         # Отправка текста
-        await client.post(f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage", data={
-            "chat_id": CHAT_ID,
-            "text": text
-        })
+        await client.post(
+            f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
+            data={"chat_id": CHAT_ID, "text": text}
+        )
 
-        # Отправка файла
+        # Отправка файла (если прикреплён)
         if file:
             file_bytes = await file.read()
             await client.post(
